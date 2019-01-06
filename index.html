@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Battle Snake</title>
+        <link rel="stylesheet" href="./snake.css" />
+    </head>
+    <body>
+        <h1>Battle Snake</h1>
+
+        <div class="status">
+            <span id="message"></span>
+            Health: <span id="health"></span>
+            <button onclick="newGame()">Start over</button> &#183;
+            <span>Use arrow keys to control snake</span>
+        </div>
+        
+        <div id="board"></div>
+
+        <script src="./snake.js"></script>
+        <script>
+            let game;
+            function newGame() {
+                if (game) {
+                    game.stop();
+                }
+                game = new Game(40, 25, 20);
+                game.start()                
+            }
+            window.onload = () => newGame();
+        </script>
+    </body>
+</html>

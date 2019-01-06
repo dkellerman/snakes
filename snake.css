@@ -1,0 +1,35 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#board {
+    display: inline-grid;
+    grid-template-columns: repeat(var(--cols), 1rem);
+    grid-template-rows: repeat(var(--rows), 1rem);
+    border: .5rem solid blue;
+    background: black;
+}
+
+.square.empty {
+    background: transparent;
+}
+
+.square.snake.user1 { background: green; }
+.square.snake.robot1 { background: pink; }
+.square.snake.robot2 { background: yellow; }
+.square.snake.robot3 { background: purple; }
+.square.snake.robot4 { background: teal; }
+.square.snake.robot5 { background: thistle; }
+
+.square.food {
+    background: red;
+    border-radius: 1rem;
+}
+
+.status {
+    margin-bottom: 1rem;
+}
+
+#message {
+    font-weight: bold;
+}
