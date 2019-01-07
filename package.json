@@ -1,8 +1,8 @@
 {
-  "name": "snake",
+  "name": "snakes",
   "version": "1.0.0",
   "description": "",
-  "main": "snake.js",
+  "main": "snakes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

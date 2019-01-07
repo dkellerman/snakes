@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Battle Snake</title>
-        <link rel="stylesheet" href="./snake.css" />
+        <title>Battle Snake Client</title>
+        <link rel="stylesheet" href="./snakes.css" />
     </head>
     <body>
-        <h1>Battle Snake</h1>
+        <h1>Battle Snake Client</h1>
 
         <div class="status">
             <span id="message"></span>
@@ -16,14 +16,14 @@
         
         <div id="board"></div>
 
-        <script src="./snake.js"></script>
+        <script src="./snakes.js"></script>
         <script>
             let game;
             function newGame() {
                 if (game) {
                     game.stop();
                 }
-                game = new Game(40, 25, 3);
+                game = new Game(...BOARD_SIZES.xlarge, 3);
                 game.start()                
             }
             window.onload = () => newGame();

@@ -17,12 +17,19 @@ const KEYS = Object.freeze({
     40: 'down'
 });
 
+const BOARD_SIZES = Object.freeze({
+    small: [5, 5],
+    medium: [10, 10],
+    large: [19, 19],
+    xlarge: [40, 25]
+});
+
 class Snake {
     constructor(x, y, style='', health=null) {
         this.id = `${Date.now()}.${Math.random(1000000)}`;
         this.body = [];
         this.style = style;
-        this.health = health || DEFAULT_HEALTH;
+        this.health = this.initialHealth = health || DEFAULT_HEALTH;
         this.add(x, y);
     }
 
@@ -122,7 +129,6 @@ class RandomSnake extends Snake {
     }
 }
 
-
 class Game {
     constructor(width, height,
                 snakeCt=5, foodCt=3, foodScore=100, moveCost=1, delay=110)
@@ -179,7 +185,7 @@ class Game {
 
         // begin main loop - call move() on an interval to handle items pushed to
         // the 'moves' queue by the key event listener
-        // this.interval = setInterval(this.round.bind(this), this.delay);
+        this.interval = setInterval(this.round.bind(this), this.delay);
     }
 
     render() {
@@ -191,6 +197,7 @@ class Game {
                     const snake = this.snakes[i];
                     if (snake.hasPoint(x, y)) {
                         el.classList = 'square snake ' + snake.style;
+                        el.style.opacity = snake.health / snake.initialHealth;
                         isSnake = true;
                         break;
                     }
