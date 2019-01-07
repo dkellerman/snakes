@@ -1,7 +1,4 @@
-Snake Game, by David Kellerman
+Battle Snake Client
 
-To run: just open index.html in a browser, and use arrow keys to control the snake.
+To run: just open index.html in a browser, and use arrow keys to control the user snake.
 
-Next steps:
-* Too many things are hardcoded or not configurable, e.g. element IDs
-* Implement post-1950's look and feel
